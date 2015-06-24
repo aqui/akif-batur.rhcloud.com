@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+	<title>akif batur</title>
+	<link rel="icon" href="resources/images/terminal.ico" />
+	<style type="text/css">
+@font-face {
+	font-family: atari;
+	src: url(resources/atari.ttf);
+	font-size: x-small;
+}
+
+* {
+	font-family: atari;
+	font-size: x-small;
+	background: #000000;
+	color: #00FF00;
+	text-decoration: none;
+}
+
+input[type="text"] {
+	font-family: atari;
+	font-size: x-small;
+}
+</style>
+	<script type="text/javascript">
+	function hidePerm() 
+	{
+	    document.getElementById("perm1").style.display = 'none';
+	    document.getElementById("perm2").style.display = 'none';
+	}
+</script>
+</h:head>
+
+<h:body>
+	<div align="center">welcome to BaturBros unified operating system</div>
+	<div align="center">-server 1-</div>
+
+	<c:if test="${not empty param.cmd}">
+		<h:outputText value="aqui@aqui~$ #{param['cmd']}" id="perm1" />
+		<br />
+		<h:outputText value="#{terminalController.permlink(param['cmd'])}"
+			escape="false" id="perm2" />
+	</c:if>
+
+	<h:form>
+		<p:focus for="terminal" />
+		<p:terminal id="terminal" widgetVar="term"
+			commandHandler="#{terminalController.handleCommand}"
+			liveScroll="true" prompt="aqui@aqui~$ " width="100%" height="100%"
+			style="border:none;width:100%;height:100%;background:#000000;
+				color:#00FF00;text-decoration:none;">
+		</p:terminal>
+	</h:form>
+</h:body>
+</html>
