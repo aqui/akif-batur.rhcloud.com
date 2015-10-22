@@ -1,1 +1,1 @@
-aqui@aqui~$ <a href="http://www.akifbatur.com/?cmd=help">akifbatur.com</a>
+aqui@aqui~$ <a href="http://akif-batur.rhcloud.com/?cmd=help">akif-batur.rhcloud.com</a>
